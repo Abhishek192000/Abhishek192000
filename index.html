@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Kadli | Cloud Operations Terminal</title>
+    <style>
+        :root {
+            --neon-green: #39ff14;
+            --neon-blue: #00f0ff;
+            --neon-pink: #ff007f;
+            --bg-dark: #05080a;
+            --panel-bg: rgba(10, 17, 22, 0.85);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #e2f1f5;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 30px 15px;
+            margin: 0;
+            line-height: 1.6;
+            background-image: 
+                linear-gradient(rgba(18, 30, 38, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(18, 30, 38, 0.15) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Container Structure with Deep Shadow */
+        .portfolio-frame {
+            max-width: 950px;
+            margin: 0 auto;
+            background: var(--panel-bg);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.08);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 3D FLOATING NEON CLOUD & DEVOPS CORE EFFECT */
+        .visual-core {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 25px 0 40px 0;
+            perspective: 1000px;
+        }
+
+        .animated-cloud-sphere {
+            width: 140px;
+            height: 140px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: floatingFloat 4s ease-in-out infinite alternate;
+        }
+
+        /* 3D Cloud Layers */
+        .cloud-element {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px dashed var(--neon-blue);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
+            opacity: 0.7;
+        }
+        .cloud-element.layer1 { transform: rotateX(60deg) rotateY(0deg) translateZ(0); animation: rotateOrbit 12s linear infinite; }
+        .cloud-element.layer2 { border-color: var(--neon-green); transform: rotateX(60deg) rotateY(45deg) translateZ(0); animation: rotateOrbitRestart 16s linear infinite reverse; }
+        .cloud-element.layer3 { border-color: var(--neon-pink); transform: rotateX(60deg) rotateY(-45deg) translateZ(0); animation: rotateOrbit 20s linear infinite; }
+
+        /* Glowing Center Matrix Pulse */
+        .core-nucleus {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            top: 55px;
+            left: 55px;
+            box-shadow: 
+                0 0 20px #fff, 
+                0 0 40px var(--neon-blue), 
+                0 0 60px var(--neon-green);
+            animation: pulseGlow 2s infinite alternate;
+        }
+
+        .core-label {
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-top: 15px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        /* Interactive Typer Prompts */
+        .prompt { color: var(--neon-pink); font-weight: bold; }
+        .accent-tool { color: var(--neon-green); font-weight: bold; }
+        .sys-log { color: #8fa0a6; font-size: 13px; }
+        
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        @media(min-width: 768px) { .grid-layout { grid-template-columns: 1fr 1fr; } }
+
+        .project-card {
+            background: rgba(5, 10, 15, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            border-color: var(--neon-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.1);
+        }
+
+        .project-title { color: #fff; font-size: 16px; margin-top: 0; display: flex; align-items: center; gap: 8px; }
+        
+        a.action-btn {
+            display: inline-block;
+            margin-top: 15px;
+            margin-right: 10px;
+            padding: 6px 14px;
+            border: 1px solid var(--neon-blue);
+            border-radius: 4px;
+            color: var(--neon-blue);
+            font-size: 12px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        a.action-btn:hover {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+        a.action-btn.blog-btn { border-color: var(--neon-green); color: var(--neon-green); }
+        a.action-btn.blog-btn:hover { background: var(--neon-green); color: #000; box-shadow: 0 0 15px var(--neon-green); }
+
+        .divider { height: 1px; background: rgba(0, 240, 255, 0.15); margin: 25px 0; }
+
+        /* Keyframe Animations for the 3D Effects */
+        @keyframes floatingFloat {
+            0% { transform: translateY(0px) rotateY(0deg); }
+            100% { transform: translateY(-12px) rotateY(10deg); }
+        }
+        @keyframes rotateOrbit {
+            0% { transform: rotateX(60deg) rotateY(0deg) rotateZ(0deg); }
+            100% { transform: rotateX(60deg) rotateY(0deg) rotateZ(360deg); }
+        }
+        @keyframes rotateOrbitRestart {
+            0% { transform: rotateX(60deg) rotateY(45deg) rotateZ(0deg); }
+            100% { transform: rotateX(60deg) rotateY(45deg) rotateZ(360deg); }
+        }
+        @keyframes pulseGlow {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            100% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 25px #fff, 0 0 50px var(--neon-blue); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="portfolio-frame">
+    
+    <!-- 🌌 INTERACTIVE 3D NEON CLOUD MATRIX CORE -->
+    <div class="visual-core">
+        <div>
+            <div class="animated-cloud-sphere">
+                <div class="cloud-element layer1"></div>
+                <div class="cloud-element layer2"></div>
+                <div class="cloud-element layer3"></div>
+                <div class="core-nucleus"></div>
+            </div>
+            <div class="core-label">ABHISHEK KADLI // CLOUD-ENGINE</div>
+        </div>
+    </div>
+
+    <div><span class="prompt">abhishek@azure-ops:~$</span> fetch --profile-status</div>
+    <p class="text">
+        <strong>[👤 IDENTITY]</strong> Enterprise TAC Network Security Engineer<br>
+        <strong>[⏳ EXPERIENCE]</strong> 2.8 Years Production Outage Remediation @ IOPEX Technologies<br>
+        <strong>[🎯 FOCUS]</strong> Transitioning to Secure Cloud Operations, Hub-Spoke Meshes, & DevSecOps Pipelines<br>
+        <strong>[📍 LOCATION]</strong> Bengaluru, India
+    </p>
+
+    <div class="divider"></div>
+
+    <div><span class="prompt">abhishek@azure-ops:~$</span> list --active-environments --target="AZ-104"</div>
+    
+    <div class="grid-layout">
+        <!-- Project 1 -->
+        <div class="project-card">
+            <h3 class="project-title">📂 01_Secure_Landing_Zone</h3>
+            <span class="sys-log">Infrastructure as Code / Central Firewalls</span>
+            <p class="text">Deployed a robust 183-line central network topology natively using Bicep templates to bypass complex web management hurdles.</p>
+            <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
+            <a href="https://dev.to" target="_blank" class="action-btn blog-btn">Read Log</a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <h3 class="project-title">📂 04_PaaS_Storage_Isolation</h3>
+            <span class="sys-log">Zero-Trust Network Tunnels</span>
+            <p class="text">Locked down public storage endpoints using Azure Private Link networks, provisioning dedicated split-brain Private DNS lookups.</p>
+            <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
+            <a href="https://dev.to" target="_blank" class="action-btn blog-btn">Read Log</a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <h3 class="project-title">📂 07_Monitoring_&_KQL_Diagnostics</h3>
+            <span class="sys-log">Cloud System Observability</span>
+            <p class="text">Engineered centralized telemetry aggregations inside Log Analytics and parsed sessions using KQL scripts to stop application downtime.</p>
+            <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
+            <a href="https://dev.to" target="_blank" class="action-btn blog-btn">Read Log</a>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+            <h3 class="project-title">📂 03_PaloAlto_Cloud_Perimeter</h3>
+            <span class="sys-log">Enterprise Network Protection</span>
