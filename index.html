@@ -92,14 +92,14 @@
             box-shadow: 0 8px 25px rgba(0, 240, 255, 0.18);
         }
         .project-title { color: #fff; font-size: 15px; margin-top: 0; margin-bottom: 4px; font-weight: bold; }
-        .action-container { margin-top: 15px; }
+        .action-container { margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap; }
         a.action-btn {
             display: inline-block;
-            padding: 6px 14px;
+            padding: 6px 12px;
             border: 1px solid var(--neon-blue);
             border-radius: 4px;
             color: var(--neon-blue);
-            font-size: 12px;
+            font-size: 11px;
             text-decoration: none;
             transition: all 0.2s ease;
         }
@@ -107,6 +107,15 @@
             background: var(--neon-blue);
             color: #000;
             box-shadow: 0 0 15px var(--neon-blue);
+        }
+        a.action-btn.blog-btn {
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+        }
+        a.action-btn.blog-btn:hover {
+            background: var(--neon-green);
+            color: #000;
+            box-shadow: 0 0 15px var(--neon-green);
         }
         .divider { height: 1px; background: rgba(0, 240, 255, 0.15); margin: 25px 0; }
         @keyframes gridShift {
@@ -134,8 +143,7 @@
     <div><span class="prompt">abhishek@azure-ops:~$</span> list --active-environments --target="Azure-NetDevOps-Security-Suite"</div>
     
     <div class="grid-layout">
-
-                <!-- Project 1 -->
+        <!-- Project 1 -->
         <div class="project-card">
             <div>
                 <h3 class="project-title">📂 01_Enterprise_Secure_Landing_Zone</h3>
@@ -143,7 +151,8 @@
                 <p class="text">Automated enterprise hub-and-spoke production topologies using native Bicep language scripting definitions.</p>
             </div>
             <div class="action-container">
-                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+                <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
+                <a href="https://dev.to" target="_blank" class="action-btn blog-btn">Read Blog</a>
             </div>
         </div>
 
@@ -155,7 +164,8 @@
                 <p class="text">Continuous integration frameworks verifying deployment posture against cloud-native compliance parameters.</p>
             </div>
             <div class="action-container">
-                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+                <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
+                <a href="https://dev.to" target="_blank" class="action-btn blog-btn">Read Blog</a>
             </div>
         </div>
 
@@ -167,7 +177,8 @@
                 <p class="text">Integrated firewalls and Prisma Access nodes with custom Layer-3 User-Defined Routes (UDR) to manage corporate packet pathways.</p>
             </div>
             <div class="action-container">
-                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+                <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
+                <a href="https://dev.to/the-live-traffic-intercept-bringing-the-cloud-fortress-to-life-day-8-323l" target="_blank" class="action-btn blog-btn">Read Blog</a>
             </div>
         </div>
 
@@ -179,7 +190,8 @@
                 <p class="text">Locked down internet access to storage spaces via custom Private Link networks and split-brain internal Private DNS architectures.</p>
             </div>
             <div class="action-container">
-                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+                <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
+                <a href="https://dev.to/the-underground-tunnel-how-i-locked-down-enterprise-storage-without-breaking-the-app-2lcg" target="_blank" class="action-btn blog-btn">Read Blog</a>
             </div>
         </div>
 
@@ -191,7 +203,8 @@
                 <p class="text">Configured automated compute scaling fleets wrapped behind Application Gateways to withstand heavy production load drops.</p>
             </div>
             <div class="action-container">
-                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+                <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
+                <a href="https://dev.to" target="_blank" class="action-btn blog-btn">Read Blog</a>
             </div>
         </div>
 
@@ -202,33 +215,3 @@
                 <span class="sys-log">Azure Policy & RBAC Matrix</span>
                 <p class="text">Enforced explicit JSON policy criteria to prevent accidental asset drift and safeguard project access controls.</p>
             </div>
-            <div class="action-container">
-                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
-            </div>
-        </div>
-
-        <!-- Project 7 -->
-        <div class="project-card">
-            <div>
-                <h3 class="project-title">📂 07_AZ104_Monitoring_LogAnalytics_KQL</h3>
-                <span class="sys-log">Central Ingestion Telemetry</span>
-                <p class="text">Engineered log gathering architectures using Kusto Query Language (KQL) scripts to diagnose and repair cluster traffic drop faults.</p>
-            </div>
-            <div class="action-container">
-                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="divider"></div>
-    <div style="text-align: center;">
-        <span class="sys-log">🔒 SYSTEM INTEGRITY VERIFIED // CONNECT VIA:</span><br><br>
-        <a href="https://github.com" target="_blank" style="margin: 0 15px; color: #4af3ff; text-decoration: none; font-weight: bold;">GitHub Profile</a> | 
-        <a href="https://linkedin.com" target="_blank" style="margin: 0 15px; color: #4af3ff; text-decoration: none; font-weight: bold;">LinkedIn Profile</a>
-    </div>
-</div>
-
-</body>
-</html>
-
-        
