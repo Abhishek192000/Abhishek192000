@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Kadli | NetDevOps Terminal</title>
+    <title>Abhishek Kadli | NetDevOps Portfolio</title>
     <style>
         :root {
-            --neon-green: #39ff14;
             --neon-blue: #00f0ff;
+            --neon-green: #39ff14;
             --neon-pink: #ff007f;
             --bg-dark: #05080a;
-            --panel-bg: rgba(10, 17, 22, 0.92);
+            --panel-bg: rgba(10, 17, 22, 0.95);
         }
-
         body {
             background-color: var(--bg-dark);
             color: #e2f1f5;
@@ -20,68 +19,56 @@
             padding: 30px 15px;
             margin: 0;
             line-height: 1.6;
-            background-image: 
-                linear-gradient(rgba(18, 30, 38, 0.15) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(18, 30, 38, 0.15) 1px, transparent 1px);
-            background-size: 30px 30px;
         }
-
         .portfolio-frame {
-            max-width: 950px;
+            max-width: 1000px;
             margin: 0 auto;
             background: var(--panel-bg);
-            border: 1px solid rgba(0, 240, 255, 0.25);
+            border: 1px solid rgba(0, 240, 255, 0.3);
             border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.12);
-            backdrop-filter: blur(10px);
-            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.15);
         }
-
-        /* 🌌 CYBER NETDEVOPS INTERACTIVE CLOUD GRID CANVAS CONTAINER */
         .visual-container {
-            position: relative;
             width: 100%;
-            height: 200px;
+            height: 160px;
             margin-bottom: 30px;
-            background: rgba(3, 6, 8, 0.6);
+            background: linear-gradient(135deg, #07111a 0%, #03070a 100%);
             border-radius: 8px;
-            border: 1px solid rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
         }
-
-        #cloudCanvas {
+        .visual-container::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(rgba(0, 240, 255, 0.15) 2px, transparent 2px),
+                linear-gradient(rgba(57, 255, 20, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: gridShift 25s linear infinite;
+            opacity: 0.8;
         }
-
-        .core-text-overlay {
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 2;
-            pointer-events: none;
-        }
-
         .core-label {
+            position: relative;
             color: #fff;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: bold;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 0 0 12px var(--neon-blue), 0 0 20px rgba(0, 240, 255, 0.5);
+            text-shadow: 0 0 12px var(--neon-blue), 0 0 25px rgba(0, 240, 255, 0.6);
+            z-index: 5;
+            text-align: center;
+            padding: 0 10px;
         }
-
         .prompt { color: var(--neon-pink); font-weight: bold; }
         .text { color: #e5e5e5; }
         .sys-log { color: #8fa0a6; font-size: 13px; }
-        
         .grid-layout {
             display: grid;
             grid-template-columns: 1fr;
@@ -89,26 +76,25 @@
             margin-top: 30px;
         }
         @media(min-width: 768px) { .grid-layout { grid-template-columns: 1fr 1fr; } }
-
         .project-card {
-            background: rgba(5, 10, 15, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(4, 8, 12, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 8px;
-            padding: 20px;
+            padding: 22px;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .project-card:hover {
             border-color: var(--neon-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 240, 255, 0.18);
         }
-
-        .project-title { color: #fff; font-size: 16px; margin-top: 0; display: flex; align-items: center; gap: 8px; }
-        
+        .project-title { color: #fff; font-size: 15px; margin-top: 0; margin-bottom: 4px; font-weight: bold; }
+        .action-container { margin-top: 15px; }
         a.action-btn {
             display: inline-block;
-            margin-top: 15px;
-            margin-right: 10px;
             padding: 6px 14px;
             border: 1px solid var(--neon-blue);
             border-radius: 4px;
@@ -122,22 +108,18 @@
             color: #000;
             box-shadow: 0 0 15px var(--neon-blue);
         }
-        a.action-btn.blog-btn { border-color: var(--neon-green); color: var(--neon-green); }
-        a.action-btn.blog-btn:hover { background: var(--neon-green); color: #000; box-shadow: 0 0 15px var(--neon-green); }
-
         .divider { height: 1px; background: rgba(0, 240, 255, 0.15); margin: 25px 0; }
+        @keyframes gridShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-40px, -40px); }
+        }
     </style>
 </head>
 <body>
 
 <div class="portfolio-frame">
-    
-    <!-- 🌌 INTERACTIVE ACTIVE CYBER CLOUD SYSTEM CORE GRAPHIC -->
     <div class="visual-container">
-        <canvas id="cloudCanvas"></canvas>
-        <div class="core-text-overlay">
-            <div class="core-label">ABHISHEK KADLI // NETDEVOPS & CLOUD SECURITY ARCHITECTURE</div>
-        </div>
+        <div class="core-label">ABHISHEK KADLI // NETDEVOPS & CLOUD SECURITY ARCHITECTURE</div>
     </div>
 
     <div><span class="prompt">abhishek@azure-ops:~$</span> fetch --profile-status</div>
@@ -149,79 +131,104 @@
     </p>
 
     <div class="divider"></div>
-
-    <div><span class="prompt">abhishek@azure-ops:~$</span> list --active-environments --target="AZ-104"</div>
+    <div><span class="prompt">abhishek@azure-ops:~$</span> list --active-environments --target="Azure-NetDevOps-Security-Suite"</div>
     
     <div class="grid-layout">
-        <!-- Project 1 -->
+
+                <!-- Project 1 -->
         <div class="project-card">
-            <h3 class="project-title">📂 01_Secure_Landing_Zone</h3>
-            <span class="sys-log">Infrastructure as Code / Central Firewalls</span>
-            <p class="text">Deployed a robust 183-line central network topology natively using Bicep templates to bypass complex portal management boundaries.</p>
-            <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
-            <a href="https://dev.to" target="_blank" class="action-btn blog-btn">Read Log</a>
+            <div>
+                <h3 class="project-title">📂 01_Enterprise_Secure_Landing_Zone</h3>
+                <span class="sys-log">Infrastructure as Code / Central Firewalls</span>
+                <p class="text">Automated enterprise hub-and-spoke production topologies using native Bicep language scripting definitions.</p>
+            </div>
+            <div class="action-container">
+                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+            </div>
         </div>
 
         <!-- Project 2 -->
         <div class="project-card">
-            <h3 class="project-title">📂 03_PaloAlto_Cloud_Perimeter</h3>
-            <span class="sys-log">Enterprise Network Protection</span>
-            <p class="text">Integrated virtual firewall setups and Prisma Access networks with granular Layer-3 routing mechanics (User-Defined Routes configuration).</p>
-            <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
-            <a href="https://dev.to" target="_blank" class="action-btn blog-btn">Read Log</a>
+            <div>
+                <h3 class="project-title">📂 02_Automated_SecOps_Pipelines</h3>
+                <span class="sys-log">CI/CD Guardrails & Validation</span>
+                <p class="text">Continuous integration frameworks verifying deployment posture against cloud-native compliance parameters.</p>
+            </div>
+            <div class="action-container">
+                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+            </div>
         </div>
 
         <!-- Project 3 -->
         <div class="project-card">
-            <h3 class="project-title">📂 04_PaaS_Storage_Isolation</h3>
-            <span class="sys-log">Zero-Trust Network Tunnels</span>
-            <p class="text">Locked down public storage endpoints using Azure Private Link networks, provisioning dedicated split-brain Private DNS lookup zones.</p>
-            <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
-            <a href="https://dev.to" target="_blank" class="action-btn blog-btn">Read Log</a>
+            <div>
+                <h3 class="project-title">📂 03_PaloAlto_NVA_Cloud_Perimeter</h3>
+                <span class="sys-log">Virtual Appliance Edge Protection</span>
+                <p class="text">Integrated firewalls and Prisma Access nodes with custom Layer-3 User-Defined Routes (UDR) to manage corporate packet pathways.</p>
+            </div>
+            <div class="action-container">
+                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+            </div>
         </div>
 
         <!-- Project 4 -->
         <div class="project-card">
-            <h3 class="project-title">📂 05_Azure_DNS_Zone_Routing</h3>
-            <span class="sys-log">Custom Domain Mappings</span>
-            <p class="text">Configured horizontal DNS resolution systems across public/private Azure DNS zones with automated sub-domain verification paths.</p>
-            <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
-            <a href="https://dev.to" target="_blank" class="action-btn blog-btn">Read Log</a>
+            <div>
+                <h3 class="project-title">📂 04_AZ104_PaaS_Storage_Isolation</h3>
+                <span class="sys-log">Zero-Trust Network Tunnels</span>
+                <p class="text">Locked down internet access to storage spaces via custom Private Link networks and split-brain internal Private DNS architectures.</p>
+            </div>
+            <div class="action-container">
+                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+            </div>
         </div>
 
         <!-- Project 5 -->
         <div class="project-card">
-            <h3 class="project-title">📂 07_Monitoring_&_KQL_Diagnostics</h3>
-            <span class="sys-log">Cloud System Observability</span>
-            <p class="text">Engineered centralized telemetry aggregations inside Log Analytics and parsed sessions using KQL scripts to stop application downtime.</p>
-            <a href="https://github.com" target="_blank" class="action-btn">View Code</a>
-            <a href="https://dev.to/finding-the-needle-in-the-cloud-haystack-real-time-observability-log-diagnostics-with-KQL" target="_blank" class="action-btn blog-btn">Read Log</a>
+            <div>
+                <h3 class="project-title">📂 05_AZ104_HighAvailability_VMSS</h3>
+                <span class="sys-log">Scale Sets & Traffic Balancing</span>
+                <p class="text">Configured automated compute scaling fleets wrapped behind Application Gateways to withstand heavy production load drops.</p>
+            </div>
+            <div class="action-container">
+                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+            </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card">
+            <div>
+                <h3 class="project-title">📂 06_AZ104_Governance_Security_Guardrails</h3>
+                <span class="sys-log">Azure Policy & RBAC Matrix</span>
+                <p class="text">Enforced explicit JSON policy criteria to prevent accidental asset drift and safeguard project access controls.</p>
+            </div>
+            <div class="action-container">
+                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+            </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-card">
+            <div>
+                <h3 class="project-title">📂 07_AZ104_Monitoring_LogAnalytics_KQL</h3>
+                <span class="sys-log">Central Ingestion Telemetry</span>
+                <p class="text">Engineered log gathering architectures using Kusto Query Language (KQL) scripts to diagnose and repair cluster traffic drop faults.</p>
+            </div>
+            <div class="action-container">
+                <a href="https://github.com" target="_blank" class="action-btn">Explore Directory</a>
+            </div>
         </div>
     </div>
 
     <div class="divider"></div>
-
     <div style="text-align: center;">
         <span class="sys-log">🔒 SYSTEM INTEGRITY VERIFIED // CONNECT VIA:</span><br><br>
-        <a href="https://github.com" target="_blank" style="margin: 0 15px; color: #4af3ff;">GitHub</a> | 
-        <a href="https://linkedin.com" target="_blank" style="margin: 0 15px; color: #4af3ff;">LinkedIn</a>
+        <a href="https://github.com" target="_blank" style="margin: 0 15px; color: #4af3ff; text-decoration: none; font-weight: bold;">GitHub Profile</a> | 
+        <a href="https://linkedin.com" target="_blank" style="margin: 0 15px; color: #4af3ff; text-decoration: none; font-weight: bold;">LinkedIn Profile</a>
     </div>
 </div>
 
-<script>
-    const canvas = document.getElementById('cloudCanvas');
-    const ctx = canvas.getContext('2d');
+</body>
+</html>
 
-    function resizeCanvas() {
-        canvas.width = canvas.parentElement.clientWidth;
-        canvas.height = canvas.parentElement.clientHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    const nodes = [];
-    const nodeCount = 38;
-
-    for (let i = 0; i < nodeCount; i++) {
-        nodes.push({
-            x: Math.random() * canvas.width,
+        
